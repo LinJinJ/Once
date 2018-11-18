@@ -1,0 +1,27 @@
+                        毕业设计---SSM设计企业门户网站问题记录点
+                    
+            2018年11月18日15:38:57     出现异常：
+            org.springframework.beans.factory.BeanCreationException: Error creating bean with name 
+            'org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean#0': Invocation of init method failed;
+            nested exception is java.lang.NoClassDefFoundError: javax/validation/ParameterNameProvider
+                                    
+              原因:hibernate-validator-xxx.jar 包与 validation-api-xxx.jar 版本不兼容
+              
+              解决方法：
+                  
+                  有两种方法可以解决此问题：
+
+                          1.降级hibernate验证器版本（实现JSR-303）（原先版本為5.1.0.FINAL）：
+
+                            <dependency>
+                                <groupId>org.hibernate</groupId>
+                                <artifactId>hibernate-validator</artifactId>
+                                <version>4.3.1.Final</version>
+                            </dependency> 
+                          2.如果你不想从hibernate验证器5转回到hibernate验证器4，另一个解决方案是将javax.validation升级到更高版本（描述JSR-349）(原先版本為1.0.0.GA)：
+
+                             <dependency>
+                                <groupId>javax.validation</groupId>
+                                <artifactId>validation-api</artifactId>
+                                <version>1.1.0.Final</version>
+                            </dependency>
