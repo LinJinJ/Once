@@ -25,29 +25,3 @@
                                 <artifactId>validation-api</artifactId>
                                 <version>1.1.0.Final</version>
                             </dependency>
-
-			
-			2018年12月15日23:59:30  mybatis出现传入String类型参数无法获得数据
-				原因：参数没经过统一编码格式后传入数据里是无法识别的
-				解决方法： 在连接的URL处加上characterEncoding=utf-8
-				
-			2018年12月16日00:02:54  关于在后端的list与及在JSON数据中的list获取长度的区别
-				1.在后端中的java中，list是在util包下的一个集合类，它获取的长度的是size()方法
-					底层，不过它的本质上也是个数组，所以它size()方法的底层获取的也是返回length
-					属性。
-				2.在JSON，我们传入的list是以一个个数组的形式存储的，所以在前端的JS中我们使用的
-				是length属性获取长度
-				
-				扩展：length、length()、size()的区别
-					length是数组的一个属性，记录的是数组的分配长度
-					length()是String类下的一个方法，里面计算的是这个字符串的长度
-					size()方法是集合获取长度的方法
-					
-					为什么Arrays有length属性？
-						首先，数组是一个对象容器，保存的是一系列单一类型的值；
-						然后数组被创建，但是长度不能被改变；数组的长度可以当成
-						是 final 实例；因此长度可以被当成是数组的一个属性
-						
-					为什么String类有length()方法？	
-						String类的后台数据结构是char数组，String类里面需
-						要定义一个length字段，因为并不是所有应用程序都需要
