@@ -1,0 +1,31 @@
+一，概念
+       J2EE（Java 2 Enterprise Edition） 是建立在Java2平台上的企业级应用的解决方式。J2EE技术的基础便是Java2平台
+    不但有J2SE平台的全部功能，同一时候还提供了对EJB、Servlet、JSP、XML等技术的全面支持。其最终目标是成为一个
+    支持企业级应用开发的体系结构，简化企业解决方式的开发、部署和管理等复杂问题。其实，J2EE已经成为企业级开发的
+    企业标准和首选平台。J2EE不是一个产品，而是一系列的标准
+    
+二、J2EE的十三个规范
+    1、JDBC(Java DatabaseConnectivity) : Java数据库连接
+        JDBC为java开发人员提供一个行业标准API，能够在java应用与关系数据库之间建立起独立数据库的连接。也就是说JDBC
+      API为访问不同的数据库提供了一种统一的途径。同时我们会发现事实上JDBC与ODBC非常相似，像ODBC一样,JDBC对开发
+      人员屏蔽一些细节问题，另外，JDBC对数据库的访问也具有平台无关系。即在Linux上和windows上连接数据库是一样的。
+      
+    2、JNDI(Java Naming and DirectoryInterfaces) : Java命名和文件接口
+         JNDI是一个java应用程序设计接口（API），为开发中提供了查找和访问命名和文件夹服务的通用、统一调度方式，它是
+       构建在DNS(Domain Name System,域名系统)、LDAP(LDAP是轻量文件夹访问协议，英文全称是LightweightDirectory
+       Access Protocol,一般简称为LDAP)等服务上。
+        
+    3、EJB(Enterprise JavaBean) 企业级Java Beans
+         J2EE技术之所以赢得广泛重视的原因之中的一个就是EJB。它提供了一个框架来开发和实施分布式商务逻辑，由此非常显著
+      的简化了具有可伸缩性和高度复杂的企业级应用程序的开发。EJB规范定义了EJB组件在何时怎么与它们的容器进行交互作用。
+      容器负责提供公用的服务，比如文件夹服务，事务管理，安全性，资源缓冲池以及容错性。
+      
+         总的来说，EJB是实现分布式业务逻辑的java组件。“企业”意味着应用的扩展性、可靠性、可用性、安全性、事务性以
+      及分布性。而EJB为客户提供可分布和可部署的业务逻辑服务，而且拥有良好的接口。在提供管理和控制服务的容器运行，
+      而且是在应用服务之间的可重用的。
+      
+     4、RMI(Remote MethodInvocation) : 远程方法调用
+          远程方法调用RNI是基于java的分布式编程模型。同意对象使用sstub(为屏蔽客户调用远程主机上的对象，必须提供某
+          种方式来模拟本地对象，这样的本地对象称为存根（stub）,存根负责接收本地方法的调用，并将它们委派给各自的详细
+          实现对象)和skeleton(Skeleton接口仅供RMI实现单独调用，远程对象的skeketon是一个将调用指派给实际远程对象实
+          现的server端实体，已过时)调用远程的对象，此外RNO使用系列化在两个对象间通过数据传输.
