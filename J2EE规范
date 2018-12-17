@@ -26,6 +26,62 @@
       
      4、RMI(Remote MethodInvocation) : 远程方法调用
           远程方法调用RNI是基于java的分布式编程模型。同意对象使用sstub(为屏蔽客户调用远程主机上的对象，必须提供某
-          种方式来模拟本地对象，这样的本地对象称为存根（stub）,存根负责接收本地方法的调用，并将它们委派给各自的详细
-          实现对象)和skeleton(Skeleton接口仅供RMI实现单独调用，远程对象的skeketon是一个将调用指派给实际远程对象实
-          现的server端实体，已过时)调用远程的对象，此外RNO使用系列化在两个对象间通过数据传输.
+      种方式来模拟本地对象，这样的本地对象称为存根（stub）,存根负责接收本地方法的调用，并将它们委派给各自的详细
+      实现对象)和skeleton(Skeleton接口仅供RMI实现单独调用，远程对象的skeketon是一个将调用指派给实际远程对象实
+      现的server端实体，已过时)调用远程的对象，此外RNO使用系列化在两个对象间通过数据传输.
+
+     5、JavaIDL/CORBA(JavaInterfaceDefiniyion Language/Commom Object Request Broker Architecture) : 
+               Java接口定义语言/公用对象请求代理程序体系结构
+           在java IDL的支持下，开发者能够将Java和CORBA集成在一起。它们能够创建对象并使之能够在CORBA 
+       ORB（ORB(Object Request Broker)对象请求代管者）中展开，或者他们还能够创建Java类并做为和其他ORB一起
+       展开的CORBA对象客户。
+       后一种方法提供了第二途径，通过它能被用于你的新的应用和旧系统相集成。
+      
+     6、JSP(Java Server Pages) : Java动态页面
+            JSP执行于server端；动态公布的语言。是java servlet技术的发展和自然扩展，将转化为servlet；依据client
+        请求创建动态web页面的文本文件，是J2EE的“视图”组件；其包含HTML标签、JSP标签、以及java代码。
+        
+     7、Java Servlet
+            Servlet是一种小型的Java程序，它扩展了webserver的功能。作为一种server的应用，当被请求时运行，这和
+         CGI Per(通用网关接口CGI。是一组标准定义之间交换信息的Webserver和自己定义脚本。)脚本非常相似，Servlet
+         提供的功能大多和JSP类似，只是实现的方式不同。JSP一般是大多数的HTML代码中嵌入少量的Java代码，而Servlet
+         所有由Java写成而且生成HTML。
+              也就是说，servlet是java类，基于Http协议的请求/响应模式，同web客户打交道。HttpServlet的特点是：
+         由容器管理，能够产生动态的内容，能够在本地session中存储客户数据。
+              
+              applet：小应用程序是采用Java编程语言编写的程序。该程序能够包括在HTML(标记语言的一个应用)页中。与
+          页中图像的方式大致同样。  .
+          
+     8、XML(Extemsible MarkupLanguage) 可扩展标记语言
+            XML（标准通用标记语言的子集）是一种能够用来定其他标记语言的语言。它被用来在不同的商务过程中共享数据
+          XML的发展和java是相互独立的，可是，它和Java具有的同样目标是平台独立性。
+          
+     9、JMS(Java MessageService) : Java消息服务
+            JMS是用于和面向对象消息的中间件（中间件是一种独立的系统软件或服务程序，分布式应用软件借助
+          这样的软件在不同的技术之间共享资源。中间件位于客户机/server的操作系统之上，管理计算机资源和网络通讯。
+          是连接两个独立应用程序或独立系统的软件。）相互通信的应用程序接口。JMS是Java API,提供了一种通用的方式
+          创建、发送、接受好读取企业信息通信系统的信息。
+          而且该接口支持有：点对点模型、公布/订阅模型、保证消息分布以及事务会话等等。
+          
+     10、JTA(Java Transactin API) : Java事务API
+            JTA定义了一种标准API，应用程序由此能够访问各种事务监控，JTA事务比JDBC事务更强大。一个JTA事务能够有
+          多个参与者，而一个JDBC事务则被限定在一个单一的数据库连接。
+          而且为J2EE平台提供了分布式事务服务。Java事务API可以横跨的包含：EJB访问、JDBC连接以及JMS连接。
+          
+      11.JTS(Java TransactionService) Java事务
+            Java TransactionService是J2EE架构的关键元素。它与Java Transaction API结合在一起，使我们可以构建
+          对于各种系统和网络故障都很健壮的分布式应用程序。
+            一个分布式事务（distributedtransaction）包含一个事务管理器（transaction manager）和一个或多个资源
+          管理器（resource manager）。
+            一个资源管理器（resource manager）是随意类型的持久化数据库存储。事务管理器（transaction manager）
+          承担着全部事务参与单元者的相互通讯的责任。
+          
+      12、JavaMail 
+            JavaMail是用于存取邮件server的API，它提供了一套邮件server的抽象类，不仅支持SMTPserver,也支持IMAPserver.
+       
+      13、JAF(JavaBeans ActivationFramework) : JavaBeans活动框架
+           Java Mail利用JAF来处理MIME编码的邮件附件，MIME的字节流可以被转换成java对象，大多数应用都可以不需要直接
+         使用JAF.  
+       
+     
+       
