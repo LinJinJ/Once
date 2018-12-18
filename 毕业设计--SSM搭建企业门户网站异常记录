@@ -67,3 +67,7 @@
 				解决方法：把变量a,b转化为double类型，即 double c = (double)a/(double)b; 结果为1.166；
 				2、进行运算时最好加入try/catch模块，防止特殊情况
 					例：在整除运算或取余运算时，除数为0时，会抛出算术异常ArithmeticException
+					
+			2018年12月18日23:13:07   ajax里面的数值无法传出
+				原因：ajax是异步操作
+				解决方法：在ajax中添加async:false属性，把异步该为同步
