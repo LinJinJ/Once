@@ -61,3 +61,9 @@
                     $(window).load(function(){}) 等价于JS中的window.onload=function(){}
                   
 						
+			2018年12月18日20:39:52  Java基础有问题 
+				1、整数类型的相除只能等于整数
+					例；int a = 7,b = 6;  double c = a/b;  结果为1.0
+				解决方法：把变量a,b转化为double类型，即 double c = (double)a/(double)b; 结果为1.166；
+				2、进行运算时最好加入try/catch模块，防止特殊情况
+					例：在整除运算或取余运算时，除数为0时，会抛出算术异常ArithmeticException
