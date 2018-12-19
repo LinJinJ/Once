@@ -1,6 +1,6 @@
                         毕业设计---SSM设计企业门户网站问题记录点
                     
-            2018年11月18日15:38:57     出现异常：
+            2018年12月10日15:38:57     出现异常：
             org.springframework.beans.factory.BeanCreationException: Error creating bean with name 
             'org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean#0': Invocation of init method failed;
             nested exception is java.lang.NoClassDefFoundError: javax/validation/ParameterNameProvider
@@ -67,7 +67,22 @@
 				解决方法：把变量a,b转化为double类型，即 double c = (double)a/(double)b; 结果为1.166；
 				2、进行运算时最好加入try/catch模块，防止特殊情况
 					例：在整除运算或取余运算时，除数为0时，会抛出算术异常ArithmeticException
-					
+				3、Java取余中的坑    mod()函数（取模）和rem()函数（取余）的区别
+					通常取模运算也叫取余运算，但是在java中的求余只是rem函数发挥作用，他们都遵
+					循处罚法则，返回结果都是余数，而且取余运算的被余数和被取余数都为整数，
+					如果有小数则会四舍五入再进行计算。
+					Java中取余运算具有如下性质：对所有int数值a和所有非零int数值b满足：
+　　							(a / b ) * b + (a % b) == a;
+　　				这意味着当取余操作返回一个非零的结果时。它与左操作数具有相同的正负符号	
+					1、有负号的情况
+						当被取余数为负时，余数为负，当被取余数和被余数皆为负时，余数为负，但是这个是
+						取余状态下的。取模状态下的不一样了：
+						例
+							rem(-3,2) = -1; && mod(-3,2) = 1; || rem(3,-2) = 1 && mod(3,-2) = -1
+						具体就是：rem结果的符号与被取余数的符号一致，而mod结果的符号与被余数的符号一致
+					2、被取余数小于被余数时，结果为0
+						
+				
 			2018年12月18日23:13:07   ajax里面的数值无法传出
 				原因：ajax是异步操作
 				解决方法：在ajax中添加async:false属性，把异步该为同步
