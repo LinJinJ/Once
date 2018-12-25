@@ -97,5 +97,33 @@
                               缺点：非线程安全，并发环境下很可能出现多个SingletonTest实例
                           */
                           
-                    
+                          方法三
+                          /*
+                            饱汉式的优化版本，增加了synchronized同步代码块，即添加了线程安全
+                          */
+                          public class SingletonTest{
+                              
+                               private static SingletonTest instance ;//定义静态变量，但不初始化
+                               
+                               private SingletonTest(){} //定义私有化的构造函数，防止被new关键字初始化
+                               
+                               public static SingletonTest getInstance(){ //对外提供访问的静态方法，初始化和调用
+                                    if(instance == null){ //当访问时先进行判断再进入同步模块，如果instance != null时可以直接返回，
+                                                            //不必进入同步代码块,避免线程拥堵 
+                                        synchronized(SingletonTest.class){ //这里要传入的同步对象，在本类中可使用this
+                                          //当进入了同步代码块再一次进行判断，保证多线程访问时对象在第一次创建，不会重复被创建
+                                          if(instance == null){
+                                             instance = new SingletonTest();
+                                          }
+                                        }
+                                    }
+                                    return instance;
+                               }
+                          }
+                          
+                          /*
+                              优点：线程安全，效率高，在加载SingletonTest类时，SingletonTest变量声明但不初始化，也就不会占用到内存空间，在对外
+                              静态方法中使用同步代码块可以避免线程安全问题
+                          */
                   
+                          
