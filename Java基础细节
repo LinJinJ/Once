@@ -1,0 +1,20 @@
+                                          						Java基础细节	
+   一、基本数据类型
+            一个汉字在GBK中占2字节，但是在utf中占用2、3、4个字节
+            
+            String a = 1+9+"abc"; System.out.println(a); //结果为10abc
+            String b = "anc"+1+9; Systen.out.println(b); //结果为abc19
+            
+            //同类型的数值对比
+            
+            String比较，“==”比较内存地址,要比较String的值一个用equals方法
+            String a = new String("a"); String b = new String("a"); System.out.println(a==b); //false  
+            System.out.println(a.equlas(b)); //true
+            String a = "a"; String b = "a"; System.out.println(a==b); //true  System.out.println(a.equlas(b)); //true
+            
+            //基本数据类型的比较，如果在长度范围内"=="比较为true ， 如果是基本数据类型的包装类所声明赋值的变量则比较的是地址为false  
+            Integer c = 123;Integer d = 123; System.out.println(c==d); //在范围-128-127内为true
+            Integer A = 234;Integer B = 234; System.out.println(A==B); //不在范围内为false
+            
+            Double a = 1.0;Double b = 1.0; System.out.println(a == b); //false
+            double a = 1.0;double b = 1.0;System.out.println(a == b);//true
