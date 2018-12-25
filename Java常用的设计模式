@@ -1,7 +1,7 @@
                                                 Java常用的设计模式
       1.单例设计模式
             所谓的单例设计模式简单说就是无论程序如何运行，采用单例设计模式的类（Singleton类）永远只会一个实例化对象产生。具体实现步骤如下：
-                  （1）将采用单例设计模式的类的构造方法私有化（采用private修饰）
+                  （1）将采用单例设计模式的类的构造方法私有化（采用private修饰）（防止通过new实例化对象）
                   （2）在其内部产生该类的实例化对象，并将其封装成private static类型
                   （3）定义一个静态方法返回该类的实例
                   
@@ -13,7 +13,7 @@
                                 return instance;
                         }
                         
-                        private Singleton(){  //将构造方法封装私有化
+                        private Singleton(){  //将构造方法封装私有化（防止通过new实例化对象）
                           
                         }
                         
@@ -43,7 +43,59 @@
                     }
                     
                     
+                    一、单例模式的介绍
+                          基本概念：保证一各类仅有一个实例，并且提供一个访问它的全局访问点。
                     
-                    
+                    二、单例模式的实现
+                          
+                          
+                         方法一
+                          /*
+                            饿汉式：先创建实例化对象
+                          */
+                          public class SingletonTest{
+                          
+                              pravete static Singleton instance = new Singleton();//在内部对产生本类的实例对象
+                          
+                              private SingletonTest(){}  //构造函数私有化（防止通过new实例化对象）
+                              
+                              public static SingletonTest getInstance(){ //通过静态方法返回实例对象
+                                  return instance;
+                              }
+                          }
+                          /*
+                            优点：线程安全（静态变量全局唯一）
+                            缺点：效率低，当类SingletonTest被加载时，会初始化static的instance，静态变量被创建并分配内存空间
+                                  从这以后，这个static的instance对象便一直占着这段内存（即便该变量没有被调用），当类被回收时，静态
+                                  变量被摧毁，并释放所占有的内存，因此在某些特定条件下回耗费内存。
+                          */  
+                          
+                          
+                          方法二
+                          /*
+                            饱汉式、懒汉式：先不创建对象，等到调用了静态的对外方法才开始判断并创建对象
+                          */
+                          
+                          public class SingletonTest{
+                              
+                              private static SingletonTest instance;//创建静态的变量，但不初始化
+                              
+                              private static  SingletonTest(){}  //创建私有化的构造函数（防止通过new实例化对象）
+                              
+                              public static SingletonTest getInstance(){ //定义对外的静态访问函数（在多线程下回出现重复访问）
+                                    if(instance == null){  //判断对象是否被实例化
+                                        instance = new SingletonTest();
+                                    }       
+                                    return instance;
+                              }
+                              
+                          }
+                          
+                          /*
+                              优点：效率高，当类SingletonTest被加载的时候，静态变量static的instance未被创建并分配内存空间，当getInstance方法
+                                    第一次被调用时，初始化instance变量再分配内存，因此在某些特定条件下会节约了内存
+                              缺点：非线程安全，并发环境下很可能出现多个SingletonTest实例
+                          */
+                          
                     
                   
